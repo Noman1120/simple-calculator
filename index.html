@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-body">
+        <div class="result">
+            <div id="history" class="history"></div>
+            <div class="output" id="output"50</div>
+        </div>
+        <div class="keyboard">
+            <button class="operators" id="clear-all">C</button>
+            <button class="operators" id="clear">CE</button>
+            <button class="operators" id="parcentage" onclick="inputNum('parcentage')">%</button>
+            <button class="operators" id="divide" onclick="inputNum('divide')">/</button>
+            <button class="number" id="1" onclick="inputNum(1)">1</button>
+            <button class="number" id="2" onclick="inputNum(2)">2</button>
+            <button class="number" id="3" onclick="inputNum(3)">3</button>
+            <button class="operators" id="multiple" onclick="inputNum('multiple')">*</button>
+            <button class="number" id="4" onclick="inputNum(4)">4</button>
+            <button class="number" id="5" onclick="inputNum(5)">5</button>
+            <button class="number" id="6" onclick="inputNum(6)">6</button>
+            <button class="operators" id="minus" onclick="inputNum('minus')">-</button>
+            <button class="number" id="7" onclick="inputNum(7)">7</button>
+            <button class="number" id="8" onclick="inputNum(8)">8</button>
+            <button class="number" id="9" onclick="inputNum(9)">9</button>
+            <button class="operators" id="plus" onclick="inputNum('plus')">+</button>
+            <button class="empty"></button>
+            <button class="number" id="0" onclick="inputNum(0)">0</button>
+            <button class="empty"></button>
+            <button class="operators" id="equal">=</button>
+        </div>
+    </div>
+    <footer>All Right preserved by Abdullah Al Noman</footer>
+    <script>
+    function inputNum(id){
+        document.getElementById('output').innerText += document.getElementById(id).innerText;
+    }
+    document.getElementById('equal').addEventListener('click',function(){
+    document.getElementById('history').innerText = document.getElementById('output').innerText;
+    document.getElementById('output').innerText = eval(document.getElementById('output').innerText);
+    })
+    function backSpace(){
+        return document.getElementById('output').innerText.slice(0,-1);
+    }
+    document.getElementById('clear').addEventListener('click',function(){
+        document.getElementById('output').innerText = backSpace();
+    })
+    document.getElementById('clear-all').addEventListener('click',function(){
+    document.getElementById('history').innerText = "";
+    document.getElementById('output').innerText = "";
+    })
+    
+    </script>
+</body>
+</html>
